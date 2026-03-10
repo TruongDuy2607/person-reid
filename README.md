@@ -25,16 +25,16 @@ We utilize 1 GPU for training. Please modify the `MODEL.PRETRAIN_PATH`, `DATASET
 sh run.sh
 ```
 
-## Test
+## Benchmark evaluations
 
 ```bash
-sh runtest.sh
+bash run_benchmark.sh
 ```
 
 ## Datasets
 
 | Index | Dataset | Directory | Train | Test | Query |
-| ------ | :---: | :---: | :---: | :---: | :---: |
+| :----:| --- | --- | :---: | :---: | :---: |
 | (1) | CUHK03 | ReID_Embedding/cuhk03.zip | 12514 | 1142 | 440 |
 | (2) | DukeMEMC-ReID | ReID_Embedding/Unified-ReID-Dataset.zip | 16522| 17661 | 2228 |
 | (3) | IUST | ReID_Embedding/Unified-ReID-Dataset.zip | 72393 | 45062 | 1428 |
