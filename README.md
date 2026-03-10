@@ -1,7 +1,6 @@
 # Person Re-ID: Datasets, Benchmarks and Models
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/beyond-appearance-a-semantic-controllable/person-re-identification-on-msmt17)](https://paperswithcode.com/sota/person-re-identification-on-msmt17?p=beyond-appearance-a-semantic-controllable)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/beyond-appearance-a-semantic-controllable/person-re-identification-on-market-1501)](https://paperswithcode.com/sota/person-re-identification-on-market-1501?p=beyond-appearance-a-semantic-controllable)
+
 
 This repo provides details about how to use [SOLIDER](https://github.com/tinyvision/SOLIDER) pretrained representation on person re-identification task.
 We modify the code from [TransReID](https://github.com/damo-cv/TransReID), and you can refer to the original repo for more details.
@@ -32,13 +31,28 @@ sh run.sh
 sh runtest.sh
 ```
 
+## Datasets
+
+| Index | Dataset | Directory | Train | Test | Query |
+| ------ | :---: | :---: | :---: | :---: | :---: |
+| (1) | CUHK03 | ReID_Embedding/cuhk03.zip | 12514 | 1142 | 440 |
+| (2) | DukeMEMC-ReID | ReID_Embedding/Unified-ReID-Dataset.zip | 16522| 17661 | 2228 |
+| (3) | IUST | ReID_Embedding/Unified-ReID-Dataset.zip | 72393 | 45062 | 1428 |
+| (4) | Market1501 | ReID_Embedding/Unified-ReID-Dataset.zip | 12937 | 19733 | 3369 |
+| (5) | VNPT | - | - | - | - |
+| (6) | MSMT17 | - | - | - | - | 
+| (7) | Entireid | ReID_Embedding/Unified-ReID-Dataset.zip |  | 10415 | 3000 |
+
+
+
+
 ## Performance
 
-| Method | Model | MSMT17<br>(w/o RK) | Market1501<br>(w/o RK) | MSMT17<br>(with RK) | Market1501<br>(with RK) |
-| ------ | :---: | :---: | :---: | :---: | :---: |
-| SOLIDER | Swin Tiny | 67.4/85.9<br>([Link](https://drive.google.com/file/d/10YLhMbwvmxZl3gTVo2BN_828SKZHdCjr/view?usp=share_link),[Log](https://drive.google.com/file/d/1qpc7kbPn9JpV6qu2HO1-WrL75gGLtz6_/view?usp=share_link)) | 91.6/96.1<br>([Link](https://drive.google.com/file/d/1YrE_r9Fk5uR0uFFQboBv203vxlOpFXU8/view?usp=share_link),[Log](https://drive.google.com/file/d/1EGdR1_tj0b8UG1FEmGbcBqhw-wXKTdg0/view?usp=share_link)) | 81.5/89.2 | 95.3/96.6 |
-| SOLIDER | Swin Small | 76.9/90.8<br>([Link](https://drive.google.com/file/d/1C-aIZdFyjFsZX4W4feG-Ex39RU2Qvu3b/view?usp=share_link),[Log](https://drive.google.com/file/d/1Oqzk3iZQOXTyPLJgGlnqDan1buLRx-bH/view?usp=share_link)) | 93.3/96.6<br>([Link](https://drive.google.com/file/d/14uOCf5yZq0Rt5rRSJI9I7_d5kt2EOyHO/view?usp=share_link),[Log](https://drive.google.com/file/d/1lH2-ozb5ju9TTeXIyDqeEW4U450zbgrc/view?usp=share_link)) | 86.5/91.7 | 95.4/96.4 |
-| SOLIDER | Swin Base | 77.1/90.7<br>([Link](https://drive.google.com/file/d/1Y-RFAYdT56vnMjwxH1Ym3DVhZzZuMQZs/view?usp=share_link),[Log](https://drive.google.com/file/d/1DIxAeDJqFrZ4dIEe4VQrhCJNaS3NAk3O/view?usp=share_link)) | 93.9/96.9<br>([Link](https://drive.google.com/file/d/1pZ1unW2IwSsqSN2KYHcgBhgjQztQW_fe/view?usp=share_link),[Log](https://drive.google.com/file/d/1DH0K4Ks9LXJEFVcm5PfIUUZ3A3vpFfLZ/view?usp=share_link)) | 86.5/91.7 | 95.6/96.7 |
+| Method | Backbone | Entireid<br>(w/o RK) | Entireid<br>(w RK) | VNPT<br>(w/o RK) | VNPT<br>(w RK) | Checkpoint/logs | Datasets |
+| ------ | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| SOLIDER| Swin Base | 49.8/50.65 | 54.34/51.28 | - | - | [solider_b]()/[logs]() | (1,2,3,4,5) |
+| SOLIDER| Swin Small | - | - | - | - | - | - |
+| OSNet | Resnet | 27.92/28.34 | 26.88/25.33 | - | - | [osnet]()/[logs]() | (1,2,4) |
 
 - `mAP/Rank1` are used as evaluation metric, `RK` indicates whether re-ranking is involved.
 - `RK` shares the same models with `w/o RK`.
@@ -47,7 +61,7 @@ sh runtest.sh
 
 ## Citation
 
-If you find this code useful for your research, please cite our paper
+If you find this code useful for your research, please cite SOLIDER paper
 
 ```
 @inproceedings{chen2023beyond,

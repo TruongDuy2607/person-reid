@@ -17,7 +17,7 @@ BATCH_SIZE=64
 NUM_WORKERS=4
 
 # Set to "--reranking" to enable re-ranking post-processing, or leave empty.
-RERANKING=""
+RERANKING="--reranking"
 
 
 if [ ! -f "${CONFIG_FILE}" ]; then
