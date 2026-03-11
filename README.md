@@ -53,6 +53,7 @@ bash run_benchmark.sh
 | SOLIDER| Swin Base | 49.8/50.65 | 54.34/51.28 | - | - | [solider_b]()/[logs]() | (1,2,3,4,5) |
 | SOLIDER| Swin Small | 41.05/41.69 | 45.28/42.25 | - | - | [solider_s]()/[logs]() | (1,2,3,4,5) |
 | OSNet | Resnet | 27.92/28.34 | 26.88/25.33 | - | - | [osnet]()/[logs]() | (1,2,4) |
+| PersonViT | ViT | 23.15/22.88 | 21.54/19.80 | - | - | [osnet]()/[logs]() | (1,2,4) |
 
 - `mAP/Rank1` are used as evaluation metric, `RK` indicates whether re-ranking is involved.
 - `RK` shares the same models with `w/o RK`.
