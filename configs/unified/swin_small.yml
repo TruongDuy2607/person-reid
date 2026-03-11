@@ -1,6 +1,6 @@
 MODEL:
-  PRETRAIN_PATH: 'weights/swin_small_patch4_window7_224.pth'
-  PRETRAIN_CHOICE: 'imagenet'
+  PRETRAIN_PATH: 'weights/solider_swin_small_120.pth'
+  PRETRAIN_CHOICE: 'self'
   PRETRAIN_HW_RATIO: 2
   SEMANTIC_WEIGHT: 0.2
   METRIC_LOSS_TYPE: 'triplet'
@@ -37,7 +37,7 @@ SOLVER:
   MAX_EPOCHS: 120
   BASE_LR: 0.0032  # 0.0008 x 4 GPUs
   WARMUP_EPOCHS: 20
-  IMS_PER_BATCH: 256  # 64 x 4 GPUs
+  IMS_PER_BATCH: 16  # 64 x 4 GPUs
   WARMUP_METHOD: 'cosine'
   LARGE_FC_LR: False
   CHECKPOINT_PERIOD: 10
@@ -49,10 +49,10 @@ SOLVER:
 
 TEST:
   EVAL: True
-  IMS_PER_BATCH: 256
-  RE_RANKING: False
+  IMS_PER_BATCH: 16
+  RE_RANKING: True
   WEIGHT: ''
   NECK_FEAT: 'before'
   FEAT_NORM: 'yes'
 
-OUTPUT_DIR: './log/unified/swin_small'
+OUTPUT_DIR: './log/unified/swin_base'

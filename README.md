@@ -39,7 +39,7 @@ bash run_benchmark.sh
 | (2) | DukeMEMC-ReID | ReID_Embedding/Unified-ReID-Dataset.zip | 16522| 17661 | 2228 |
 | (3) | IUST | ReID_Embedding/Unified-ReID-Dataset.zip | 72393 | 45062 | 1428 |
 | (4) | Market1501 | ReID_Embedding/Unified-ReID-Dataset.zip | 12937 | 19733 | 3369 |
-| (5) | VNPT | - | - | - | - |
+| (5) | VNPT | - | 2856 | 633 | 41 |
 | (6) | MSMT17 | - | - | - | - | 
 | (7) | Entireid | ReID_Embedding/Unified-ReID-Dataset.zip |  | 10415 | 3000 |
 
@@ -51,7 +51,7 @@ bash run_benchmark.sh
 | Method | Backbone | Entireid<br>(w/o RK) | Entireid<br>(w RK) | VNPT<br>(w/o RK) | VNPT<br>(w RK) | Checkpoint/logs | Datasets |
 | ------ | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | SOLIDER| Swin Base | 49.8/50.65 | 54.34/51.28 | - | - | [solider_b]()/[logs]() | (1,2,3,4,5) |
-| SOLIDER| Swin Small | - | - | - | - | - | - |
+| SOLIDER| Swin Small | 41.05/41.69 | 45.28/42.25 | - | - | [solider_s]()/[logs]() | (1,2,3,4,5) |
 | OSNet | Resnet | 27.92/28.34 | 26.88/25.33 | - | - | [osnet]()/[logs]() | (1,2,4) |
 
 - `mAP/Rank1` are used as evaluation metric, `RK` indicates whether re-ranking is involved.

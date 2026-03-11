@@ -8,7 +8,7 @@
 CUDA_VISIBLE_DEVICES=0 python -m torch.distributed.launch \
     --master_port 29501 \
     --nproc_per_node=1 \
-    train.py --config_file configs/unified/swin_base.yml
+    train.py --config_file configs/unified/swin_small.yml
 
 # ---------- Swin Small (ImageNet pretrain) ----------
 # CUDA_VISIBLE_DEVICES=0,1,2,3 python -m torch.distributed.launch \

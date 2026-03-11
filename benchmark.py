@@ -218,7 +218,7 @@ def parse_args():
              "and 'query/' sub-directories."
     )
     parser.add_argument(
-        "--device", default="cuda", type=str, choices=["cuda", "cpu"],
+        "--device", default="cuda:1", type=str, choices=["cuda", "cpu"],
         help="Device to run inference on (default: cuda)."
     )
     parser.add_argument(
@@ -248,6 +248,9 @@ def main():
         cfg.merge_from_list(args.opts)
     cfg.defrost()
     cfg.TEST.RE_RANKING = args.reranking
+    # Prevent make_model from calling init_weights() with the training
+    # checkpoint path — the full model is loaded via load_param() below.
+    cfg.MODEL.PRETRAIN_PATH = ''
     cfg.freeze()
 
     device = args.device

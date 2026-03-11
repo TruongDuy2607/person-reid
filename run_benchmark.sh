@@ -9,15 +9,15 @@
 #   - Filename format: {pid}_c{camid}[...].jpg / .png
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CONFIG_FILE="${SCRIPT_DIR}/configs/unified/swin_base.yml"
-WEIGHT="${SCRIPT_DIR}/log/unified/swin_base/transformer_120.pth"
+CONFIG_FILE="${SCRIPT_DIR}/configs/unified/swin_small.yml"
+WEIGHT="${SCRIPT_DIR}/weights/solider_swin_small_120.pth"
 DATASET_DIR="/home/vnptai/duytv/projects/Person-ReID/PersonViT/datasets/Unified-ReID-Dataset/entireid_blured"
 DEVICE="cuda"
 BATCH_SIZE=64
 NUM_WORKERS=4
 
 # Set to "--reranking" to enable re-ranking post-processing, or leave empty.
-RERANKING="--reranking"
+RERANKING=""
 
 
 if [ ! -f "${CONFIG_FILE}" ]; then
@@ -39,7 +39,7 @@ fi
 
 cd "${SCRIPT_DIR}"
 
-CUDA_VISIBLE_DEVICES=0 python benchmark.py \
+CUDA_VISIBLE_DEVICES=1 python benchmark.py \
     --config_file "${CONFIG_FILE}" \
     --weight      "${WEIGHT}" \
     --dataset_dir "${DATASET_DIR}" \
